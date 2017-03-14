@@ -4,6 +4,7 @@ var quote = require('../controllers/quotes.controller.js')
 /* GET home page. */
 router.post('/',quote.create);
 router.get('/',quote.randomQuote)
-router.delete('/:id',quote.delete)
+router.delete('/',quote.delete)
 router.get('/random',quote.randomnessQuote)
+router.post('/seed',quote.seed);
 module.exports = router;

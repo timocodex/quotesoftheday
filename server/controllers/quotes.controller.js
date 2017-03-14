@@ -15,6 +15,16 @@ module.exports = {
         }
       })
     },
+    seed: function(req,res){
+
+      Quote.insertMany([{quote:'I love you the more in that I believe you had liked me for my own sake and for nothing else.',quoter:'John Keats'},
+{quote:'But man is not made for defeat. A man can be destroyed but not defeated.',quoter:'Ernest Hemingway'},
+{quote:'When you reach the end of your rope, tie a knot in it and hang on.',quoter:'Franklin D. Roosevelt'},
+{quote:'There is nothing permanent except change.',quoter:'Heraclitus'},
+{quote:'You cannot shake hands with a clenched fist.',quoter:'Indira Gandhi'},
+{quote:'Let us sacrifice our today so that our children can have a better tomorrow.',quoter:'A. P. J. Abdul Kalam'},
+    ]).then(res.send('done seeding'))
+    },
     show:function(req,res){
       Quote.find({},function(err,result){
         if(err){
@@ -26,7 +36,7 @@ module.exports = {
       })
     },
     delete: function(req,res){
-      Quote.findOneAndRemove({_id:req.params.id},function(err){
+      Quote.remove({},function(err){
         if(err){
           res.send(err)
         }
