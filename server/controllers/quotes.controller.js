@@ -45,5 +45,16 @@ module.exports = {
           res.render('index',result[Math.floor((Math.random() * result.length ))])
         }
       })
+    },
+    randomnessQuote: function(req,res){
+      Quote.find({},function(err,result){
+        if(err){
+          res.send(err)
+        }
+        else{
+
+          res.json(result[Math.floor((Math.random() * result.length ))])
+        }
+      })
     }
 }
